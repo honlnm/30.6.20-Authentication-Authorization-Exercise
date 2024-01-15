@@ -54,11 +54,11 @@ Make routes for the following:
 
 **GET */logout :*** Clear any information from the session and redirect to ***/***
 
-## **Part 6: Let’s change */secret* to */users/"&lt;"username"&gt;"***
+## **Part 6: Let’s change */secret* to */users/&lt;username&gt;***
 
 Now that we have some logging in and and logging out working. Let’s add some authorization! When a user logs in, take them to the following route:
 
-**GET */users/<username> :*** Display a template the shows information about that user (everything except for their password). You should ensure that only logged in users can access this page.
+**GET */users/&lt;username&gt; :*** Display a template the shows information about that user (everything except for their password). You should ensure that only logged in users can access this page.
 
 ## **Part 7: Give us some more feedback!**
 
@@ -75,7 +75,7 @@ It should have the following columns:
 
 ## **Part 8: Make/Modify Routes For Users and Feedback**
 
-**GET */users/<username> :*** Show information about the given user. Show all of the feedback that the user has given. For each piece of feedback, display with a link to a form to edit the feedback and a button to delete the feedback. Have a link that sends you to a form to add more feedback and a button to delete the user **Make sure that only the user who is logged in can successfully view this page.**
+**GET */users/&lt;username&gt; :*** Show information about the given user. Show all of the feedback that the user has given. For each piece of feedback, display with a link to a form to edit the feedback and a button to delete the feedback. Have a link that sends you to a form to add more feedback and a button to delete the user **Make sure that only the user who is logged in can successfully view this page.**
 
 **POST */users/<username>/delete :*** Remove the user from the database and make sure to also delete all of their feedback. Clear any user information in the session and redirect to ***/***. **Make sure that only the user who is logged in can successfully delete their account.**
 
