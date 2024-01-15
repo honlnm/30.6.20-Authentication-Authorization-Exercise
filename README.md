@@ -54,7 +54,7 @@ Make routes for the following:
 
 **GET */logout :*** Clear any information from the session and redirect to ***/***
 
-## **Part 6: Let’s change */secret* to */users/&lt username &gt***
+## **Part 6: Let’s change */secret* to */users/"&lt;"username"&gt;"***
 
 Now that we have some logging in and and logging out working. Let’s add some authorization! When a user logs in, take them to the following route:
 
