@@ -39,7 +39,7 @@ def create_app(db_name, testing=False):
 
             session["user_id"] = user.id
 
-            return redirect("/secret")
+            return redirect("/users/")
 
         else:
             return render_template("register.html", form=form)
@@ -57,19 +57,24 @@ def create_app(db_name, testing=False):
 
             if user:
                 session["user_id"] = user.id
-                return redirect("/secret")
+                return redirect("/users/")
             else:
                 form.username.errors = ["Bad name/password"]
 
         return render_template("login.html", form=form)
 
-    @app.route("/secret")
-    def secret():
+    @app.route("/users/")
+    def users():
         if "user_id" not in session:
             flash("You must be logged in to view!")
             return redirect("/")
         else:
-            return render_template("secret.html")
+            user = User.query.get_or_404(session.user_id)
+            username = user.username
+            email = user.email
+            first_name = user.first_name
+            last_name = user.last_name
+            return render_template("users.html", username=username, email=email, first_name=first_name, last_name=last_name)
 
     @app.route("/logout")
     def logout():
